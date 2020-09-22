@@ -8,7 +8,7 @@ const doc = new PDFDocument;
 // See below for browser usage
 doc.pipe(fs.createWriteStream('output.pdf'));
 
-doc.addPage();
+doc.image('images/pscat.jpg', 50, 50, {height: 100})
 
 // Finalize PDF file
 doc.end();
