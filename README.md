@@ -7,3 +7,6 @@ install with npm install pdfkit
 
 
 http://pdfkit.org/docs/guide.pdf for guidelines to set up
+
+run in cmd "node 'filename'" to produce output file
+running doesn't modify existing file with the same name, it recompiles and overwrites it
