@@ -33,7 +33,7 @@ doc.pipe(fs.createWriteStream('output.pdf'));
 
 //page 3:
 doc.addPage()
-doc.image('images/book1/CM - 02.png', 806, 1406, {height: 100});
+doc.image('images/book1/CM - 02.png', 806*one_px_width_points, 1406*one_px_width_points, {height: 150});
 doc.text('Hello')
 
 // Finalize PDF file
