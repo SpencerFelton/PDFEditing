@@ -33,8 +33,9 @@ doc.pipe(fs.createWriteStream('output.pdf'));
 
 //page 3:
 doc.addPage()
-doc.image('images/book1/CM - 02.png', 806*one_px_width_points, 1406*one_px_width_points, {height: 150});
-doc.text('Hello')
+var text = "Twas the night before Christmas\nAnd snug in their house\nThe little mice gathered\nAround Mummy Mouse."
+doc.image('images/book1/CM - 02.png', 900*one_px_width_points, 1406*one_px_width_points, {height: 150});
+doc.text(text)
 
 // Finalize PDF file
 doc.end();
