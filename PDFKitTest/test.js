@@ -33,9 +33,9 @@ doc.pipe(fs.createWriteStream('output.pdf'));
 
 //page 3:
 doc.addPage()
-var text = "Twas the night before Christmas\nAnd snug in their house\nThe little mice gathered\nAround Mummy Mouse."
-doc.image('images/book1/CM - 02.png', 900*one_px_width_points, 1406*one_px_width_points, {height: 150});
-doc.text(text)
+var text = "Twas the night before Christmas\nAnd snug in their house\nThe little mice gathered\nAround Mummy Mouse.";
+doc.image('images/book1/CM - 02.png', 900*one_px_width_points, 1406*one_px_width_points, {height: 150}); // width is automatically scaled to height
+doc.text(text, 800*one_px_width_points, 800*one_px_width_points) // TODO: instead of manually doing the newlines, try to sort the text wrapping 
 
 // Finalize PDF file
 doc.end();
