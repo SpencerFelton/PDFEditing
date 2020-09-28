@@ -45,6 +45,6 @@ doc.image('images/book1/CM - 02.png', 900*one_px_width_points, 1406*one_px_width
 doc.text(text, 800*one_px_width_points, 800*one_px_width_points) // TODO: instead of manually doing the newlines, try to sort the text wrapping
 
 doc.addPage()
-//doc.image('images/book1/CM - 09a.png', {height: mm_height*one_px_height_points}); // width is automatically scaled to height ----------causes js to run out of memory in the heap
+//doc.image('images/book1/CM - 09a.png', {height: mm_height*one_px_height_points}); // width is automatically scaled to height ---------- STILL CAUSES HEAP OUT OF MEM AFTER INCREASING MEMORY ALLOWANCE
 // Finalize PDF file
 doc.end();
