@@ -45,6 +45,8 @@ doc.image('images/book1/CM - 02.png', 900*one_px_width_points, 1406*one_px_width
 doc.text(text, 800*one_px_width_points, 800*one_px_width_points) // TODO: instead of manually doing the newlines, try to sort the text wrapping
 
 doc.addPage()
+var text = '"Now who can it be?"\nNAMEnamena\nCan you see who\'s there?\n\nThere\'s someone quite small\nin the cold and the snow\ncan you see who knocked\nJust a moment ago?'
 doc.image('images/book1/CM - 09a-scaled-down.png', 0, 0, {height: px_height*one_px_height_points}); // width is automatically scaled to height ---------- STILL CAUSES HEAP OUT OF MEM AFTER INCREASING MEMORY ALLOWANCE
+doc.text(text, 900*one_px_width_points, 1800*one_px_height_points) // adding text in rough area
 // Finalize PDF file
 doc.end();
