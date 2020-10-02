@@ -1,29 +1,55 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 
-mm_width = 195; // width of page in mm
-px_width = 2303; // width of page in pixels
+var size = "medium";
 
-mm_height = 241; // height of page in mm
-px_height = 2846; // height of page in pixels
+var mm_width = 195; // width of page in mm
+var px_width = 2303; // width of page in pixels
 
-one_inch_to_points = 72 // pdf measures dimensions in points, 72 points = 1 inch
-one_inch_to_mm = 25.4 // 1 inch = 25.4 mm
+var mm_height = 241; // height of page in mm
+var px_height = 2846; // height of page in pixels
 
-one_mm_width_in_px = px_width/mm_width; // pixels per one mm horizontally
-one_mm_height_in_px = px_height/mm_height // pixels per one mm vertically
+if(size == "small"){
+  mm_width = 150; //placeholder values for width and height
+  px_width = 1600;
 
-one_mm_in_points = one_inch_to_points/one_inch_to_mm; // width of one mm in points (72/25.4)
+  mm_height = 200;
+  px_height = 2200;
+}
+if(size == "medium"){
+  mm_width = 195;
+  px_width = 2303;
 
-one_px_width_in_points = one_mm_in_points/one_mm_width_in_px; // width of one pixel in points - multiply this by pixel positions to use in coordinate system
+  mm_height = 241;
+  px_height = 2846;
 
-one_px_height_in_points = one_mm_in_points/one_mm_height_in_px;
+}
+if(size == "large"){
+  var mm_width = 250;
+  var px_width = 3000;
 
-console.log(one_px_width_in_points);
+  var mm_height = 300;
+  var px_height = 3500;
+}
+
+
+var one_inch_to_points = 72 // pdf measures dimensions in points, 72 points = 1 inch
+var one_inch_to_mm = 25.4 // 1 inch = 25.4 mm
+
+var one_mm_width_in_px = px_width/mm_width; // pixels per one mm horizontally
+var one_mm_height_in_px = px_height/mm_height // pixels per one mm vertically
+
+var one_mm_in_points = one_inch_to_points/one_inch_to_mm; // width of one mm in points (72/25.4)
+
+var one_px_width_in_points = one_mm_in_points/one_mm_width_in_px; // width of one pixel in points - multiply this by pixel positions to use in coordinate system
+
+var one_px_height_in_points = one_mm_in_points/one_mm_height_in_px;
+
+console.log(one_px_height_in_points*2846);
 
 
 // Create a document
-const doc = new PDFDocument({size: [552.75624, 683.14968]});
+const doc = new PDFDocument({size: [552.75624, 683.14968]}); //[one_px_width_in_points*px_width, one_px_width_height*px_height]
 doc.font('fonts/sweetpea.ttf')
 
 // Pipe its output somewhere, like to a file or HTTP response
