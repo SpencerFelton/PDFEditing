@@ -1,7 +1,12 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 
-var size = "medium";
+var size = "medium"; // this value will need to be read in from the HTTP request
+
+var book_text = ["Twas the night before Christmas\nAnd snug in their house\nThe little mice gathered\nAround Mummy Mouse.",
+'"Now who can it be?"\nNAMEnamena\nCan you see who\'s there?\n\nThere\'s someone quite small\nin the cold and the snow\ncan you see who knocked\nJust a moment ago?']
+
+var replaced_name_text = nameReplace("spencer", book_text);
 
 var mm_width = 195; // width of page in mm
 var px_width = 2303; // width of page in pixels
@@ -25,7 +30,7 @@ if(size == "medium"){
 
 }
 if(size == "large"){
-  var mm_width = 250;
+  var mm_width = 250; //placeholder values for width and height
   var px_width = 3000;
 
   var mm_height = 300;
@@ -43,13 +48,11 @@ var one_mm_in_points = one_inch_to_points/one_inch_to_mm; // width of one mm in 
 
 var one_px_width_in_points = one_mm_in_points/one_mm_width_in_px; // width of one pixel in points - multiply this by pixel positions to use in coordinate system
 
-var one_px_height_in_points = one_mm_in_points/one_mm_height_in_px;
-
-console.log(one_px_height_in_points*2846);
+var one_px_height_in_points = one_mm_in_points/one_mm_height_in_px; // height of one pixel in points
 
 
 // Create a document
-const doc = new PDFDocument({size: [552.75624, 683.14968]}); //[one_px_width_in_points*px_width, one_px_width_height*px_height]
+const doc = new PDFDocument({size: [one_px_width_in_points*px_width, one_px_height_in_points*px_height]}); //width and height in points
 doc.font('fonts/sweetpea.ttf')
 
 // Pipe its output somewhere, like to a file or HTTP response
@@ -65,13 +68,27 @@ doc.pipe(fs.createWriteStream('output.pdf'));
 
 //page 3:
 doc.addPage()
-var text = "Twas the night before Christmas\nAnd snug in their house\nThe little mice gathered\nAround Mummy Mouse.";
+var text = replaced_name_text[0]
 doc.image('images/book1/CM - 02.png', 900*one_px_width_in_points, 1406*one_px_height_in_points, {height: 150}); // width is automatically scaled to height
 doc.text(text, 800*one_px_width_in_points, 800*one_px_height_in_points) // TODO: instead of manually doing the newlines, try to sort the text wrapping
 
+//page 4:
 doc.addPage()
-var text = '"Now who can it be?"\nNAMEnamena\nCan you see who\'s there?\n\nThere\'s someone quite small\nin the cold and the snow\ncan you see who knocked\nJust a moment ago?'
+var text = replaced_name_text[1]
 doc.image('images/book1/CM - 09a-scaled-down.png', 0, 0, {height: px_height*one_px_height_in_points}); // width is automatically scaled to height ---------- STILL CAUSES HEAP OUT OF MEM AFTER INCREASING MEMORY ALLOWANCE
 doc.text(text, 900*one_px_width_in_points, 1800*one_px_height_in_points) // adding text in rough area
 // Finalize PDF file
 doc.end();
+
+
+function nameReplace(name, book_text) { //replace any NAMEnamena with the given name
+  //book_text is an array of strings, each index corresponding to a page
+  //name is a string
+  var placeholder = "NAMEnamena";
+  var return_array = [];
+  for (strings in book_text){
+    return_array.push(book_text[strings].replace(placeholder, name))
+  }
+
+  return(return_array);
+}
