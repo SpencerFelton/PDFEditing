@@ -84,10 +84,10 @@ doc.end();
 function nameReplace(name, book_text) { //replace any NAMEnamena with the given name
   //book_text is an array of strings, each index corresponding to a page
   //name is a string
-  var placeholder = "NAMEnamena";
-  var return_array = [];
+  var placeholder = "NAMEnamena"; // NAMEnamena used as the placeholder name in book text
+  var return_array = []; // Array returning each string with replaced name
   for (strings in book_text){
-    return_array.push(book_text[strings].replace(placeholder, name))
+    return_array.push(book_text[strings].replace(placeholder, name)) 
   }
 
   return(return_array);
