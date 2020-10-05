@@ -80,14 +80,17 @@ doc.text(text, 900*one_px_width_in_points, 1800*one_px_height_in_points) // addi
 // Finalize PDF file
 doc.end();
 
-
+/**
+  * @desc replaces placeholder text with a given name
+  * @param name the name to repace the placeholder text
+  * @param book_text the array of strings which has placeholder text to be replaced
+  * @return an array of strings where the placeholder text has been replaced with the name
+**/
 function nameReplace(name, book_text) { //replace any NAMEnamena with the given name
-  //book_text is an array of strings, each index corresponding to a page
-  //name is a string
   var placeholder = "NAMEnamena"; // NAMEnamena used as the placeholder name in book text
   var return_array = []; // Array returning each string with replaced name
   for (strings in book_text){
-    return_array.push(book_text[strings].replace(placeholder, name)) 
+    return_array.push(book_text[strings].replace(placeholder, name))
   }
 
   return(return_array);
