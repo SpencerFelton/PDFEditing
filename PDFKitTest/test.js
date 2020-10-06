@@ -80,6 +80,7 @@ doc.text(text, 900*one_px_width_in_points, 1800*one_px_height_in_points) // addi
 // Finalize PDF file
 doc.end();
 
+
 /**
   * @desc replaces placeholder text with a given name
   * @param name the name to repace the placeholder text
@@ -95,3 +96,14 @@ function nameReplace(name, book_text) { //replace any NAMEnamena with the given 
 
   return(return_array);
 }
+
+/**
+  * @desc builds a pdf of a book
+  * @param book_name String - the name of the book to be built
+  * @param book_size String - the size of the book to be built (L/M/S) etc
+  * @param custom_name String - the custom name given by the client
+**/
+function buildBook(book_name, book_size, custom_name):
+  if (book_name == "Christmas") {
+    // build christmas book here, have some function named buildChristmas(book_size, custom_name) which deals with different book sizes
+  }
