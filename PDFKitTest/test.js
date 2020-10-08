@@ -94,12 +94,12 @@ function buildChristmas(book_size, custom_name){
   '"Now who can it be?"\nNAMEnamena\nCan you see who\'s there?\n\nThere\'s someone quite small\nin the cold and the snow\ncan you see who knocked\nJust a moment ago?']
 
   var replaced_name_text = nameReplace(custom_name, book_text);
-  var dimensions = getSize(book_size);
-  var calculatedDimensions = calculateDimensions(dimensions[0], dimensions[1], dimensions[2], dimensions[3])
+  var dimensions = getSize(book_size); // returns [mm_width, px_width, mm_height, px_height]
+  var calculatedDimensions = calculateDimensions(dimensions[0], dimensions[1], dimensions[2], dimensions[3]) // returns [one_px_width_in_points, one_px_height_in_points]
 
   // Create a document
   const doc = new PDFDocument({size: [calculatedDimensions[0]*dimensions[1], calculatedDimensions[1]*dimensions[3]]}); //width and height in points
-  doc.font('fonts/sweetpea.ttf');
+  doc.font('fonts/sweetpea.ttf'); // custom font
 
   // Pipe its output somewhere, like to a file or HTTP response
   // See below for browser usage
