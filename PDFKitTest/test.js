@@ -110,9 +110,9 @@ function buildChristmas(book_size, custom_name){
   //inside page:
 
   //page 1:
-
+  doc.addPage()
   //page 2:
-
+  doc.addPage()
   //page 3:
   doc.addPage()
   var text = replaced_name_text[0]
