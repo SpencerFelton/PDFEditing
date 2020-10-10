@@ -1,6 +1,6 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
-
+var book_text = require('./book_text.js').text();
 var size = "medium"; // this value will need to be read in from the HTTP request
 
 var mm_width = 195; // width of page in mm
@@ -90,8 +90,6 @@ function buildBook(book_name, book_size, custom_name){
 
 
 function buildChristmas(book_size, custom_name){
-  var book_text = ["Twas the night before Christmas\nAnd snug in their house\nThe little mice gathered\nAround Mummy Mouse.",
-  '"Now who can it be?"\nNAMEnamena\nCan you see who\'s there?\n\nThere\'s someone quite small\nin the cold and the snow\ncan you see who knocked\nJust a moment ago?']
 
   var replaced_name_text = nameReplace(custom_name, book_text);
   var dimensions = getSize(book_size); // returns [mm_width, px_width, mm_height, px_height]
