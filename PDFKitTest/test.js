@@ -43,10 +43,10 @@ function getSize(size){
   }
   if(size == "medium"){
     mm_width = 195;
-    px_width = 2303;
+    px_width = 2776;
 
     mm_height = 241;
-    px_height = 2846;
+    px_height = 3544;
 
   }
   if(size == "large"){
@@ -108,10 +108,31 @@ function buildChristmas(book_size, custom_name){
   //inside page:
 
   //page 1:
-  doc.addPage()
+  doc.addPage();
+  doc.image('images/FinishedImages/WOW Lost at Christmas_4.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
   //page 2:
-  doc.addPage()
+  doc.addPage();
+  var text = replaced_name_text[0];
+  doc.image('images/FinishedImages/WOW Lost at Christmas_1.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
+  doc.text(text, 800*calculatedDimensions[0],800*calculatedDimensions[1]);
   //page 3:
+  doc.addPage();
+  doc.image('images/FinishedImages/WOW Lost at Christmas_6.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
+  //page 4:
+  doc.addPage();
+  var text = replaced_name_text[1];
+  var second_text = replaced_name_text[2];
+  doc.image('images/FinishedImages/WOW Lost at Christmas_7.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
+  doc.text(text, 800*calculatedDimensions[0],200*calculatedDimensions[1]);
+  doc.text(second_text,800*calculatedDimensions[0], 2500*calculatedDimensions[1])
+  //page 5:
+  doc.addPage()
+  var text = replaced_name_text[3];
+  doc.image('images/FinishedImages/WOW Lost at Christmas_8.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
+  doc.text(text, 1000*calculatedDimensions[0], 2000*calculatedDimensions[1])
+
+
+  /**
   doc.addPage()
   var text = replaced_name_text[0]
   doc.image('images/book1/CM - 02.png', 900*calculatedDimensions[0], 1406*calculatedDimensions[1], {height: 150}); // width is automatically scaled to height
@@ -123,6 +144,7 @@ function buildChristmas(book_size, custom_name){
   doc.image('images/book1/CM - 09a-scaled-down.png', 0, 0, {height: dimensions[3]*calculatedDimensions[1]}); // width is automatically scaled to height ---------- STILL CAUSES HEAP OUT OF MEM AFTER INCREASING MEMORY ALLOWANCE
   doc.text(text, 900*calculatedDimensions[0], 1800*calculatedDimensions[1]) // adding text in rough area
   // Finalize PDF file
+  **/
   doc.end();
 
 
