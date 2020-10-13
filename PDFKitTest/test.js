@@ -137,6 +137,11 @@ function buildChristmas(book_size, custom_name){
   doc.image('images/FinishedImages/WOW Lost at Christmas_9.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
   doc.text(text, 500*calculatedDimensions[0], 2500*calculatedDimensions[1]);
   doc.text(second_text, 1500*calculatedDimensions[0], 2500*calculatedDimensions[1])
+  //page 7:
+  doc.addPage()
+  var text = replaced_name_text[6]
+  doc.image('images/FinishedImages/WOW Lost at Christmas_10.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
+  doc.text(text, 500*calculatedDimensions[0], 2000*calculatedDimensions[1])
 
 
 
