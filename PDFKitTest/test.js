@@ -147,12 +147,16 @@ function buildChristmas(book_size, custom_name){
   doc.image('images/FinishedImages/WOW Lost at Christmas_11.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
   //page 9:
   doc.addPage();
+  doc.image('images/FinishedImages/WOW Lost at Christmas_12.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
   //page 10:
   doc.addPage();
+  doc.image('images/FinishedImages/WOW Lost at Christmas_13.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
   //page 11:
   doc.addPage();
+  doc.image('images/FinishedImages/WOW Lost at Christmas_14.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
   //page 12:
   doc.addPage();
+  doc.image('images/FinishedImages/WOW Lost at Christmas_15.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
 
 
   /**
