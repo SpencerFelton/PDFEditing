@@ -160,6 +160,7 @@ function buildChristmas(book_size, custom_name){
   //page 13:
   doc.addPage();
   doc.image('images/FinishedImages/WOW Lost at Christmas_16.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
+  //END OF TEXT
 
 
   /**
