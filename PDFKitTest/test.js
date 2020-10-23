@@ -160,22 +160,7 @@ function buildChristmas(book_size, custom_name){
   //page 13:
   doc.addPage();
   doc.image('images/FinishedImages/WOW Lost at Christmas_16.jpg', {height: calculatedDimensions[1]*px_height, width: calculatedDimensions[0]*px_width});
-  //END OF TEXT
-
-
-  /**
-  doc.addPage()
-  var text = replaced_name_text[0]
-  doc.image('images/book1/CM - 02.png', 900*calculatedDimensions[0], 1406*calculatedDimensions[1], {height: 150}); // width is automatically scaled to height
-  doc.text(text, 800*calculatedDimensions[0], 800*calculatedDimensions[1]) // TODO: instead of manually doing the newlines, try to sort the text wrapping
-
-  //page 4:
-  doc.addPage()
-  var text = replaced_name_text[1]
-  doc.image('images/book1/CM - 09a-scaled-down.png', 0, 0, {height: dimensions[3]*calculatedDimensions[1]}); // width is automatically scaled to height ---------- STILL CAUSES HEAP OUT OF MEM AFTER INCREASING MEMORY ALLOWANCE
-  doc.text(text, 900*calculatedDimensions[0], 1800*calculatedDimensions[1]) // adding text in rough area
-  // Finalize PDF file
-  **/
+  //END OF TEXT 
   doc.end();
 
 
